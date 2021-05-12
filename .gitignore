@@ -22,3 +22,6 @@ out/
 *.zip
 *.tar.gz
 *.rar
+
+/frontend/node_modules
+/frontend/e2e
