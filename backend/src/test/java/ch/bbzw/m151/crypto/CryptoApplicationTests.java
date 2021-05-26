@@ -1,10 +1,10 @@
-package com.flostet.CryptoTradingPlatform;
+package ch.bbzw.m151.crypto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CryptoTradingPlatformApplicationTests {
+class CryptoApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,13 +1,13 @@
-package com.flostet.CryptoTradingPlatform;
+package ch.bbzw.m151.crypto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CryptoTradingPlatformApplication {
+public class CryptoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CryptoTradingPlatformApplication.class, args);
+		SpringApplication.run(CryptoApplication.class, args);
 	}
 
 }
