@@ -1,0 +1,128 @@
+@media ( max-width: 500px ) { 
+    .login-form-1{
+        padding: 5%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        border: 2px solid black;
+        margin: 20px;
+        margin-top: 5px;
+        border-right: 2x solid black;
+    }
+
+    .login-form-2{
+        padding: 5%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        border: 2px solid black;
+        margin: 20px;
+        border-left: 2px solid black;
+    }
+
+    .login-logo {
+        display: none;
+    }
+
+    .login-header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dashboard-content {
+        margin: auto;
+        width: 60%;
+        border: 2px solid black;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.login-container{
+    margin-top: 50px;
+    margin-bottom: 5%;
+    flex: auto;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
+    border-right: 1px solid black;
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
+    border-left: 1px solid black;
+}
+.login-form-2 h3{
+    text-align: center;
+    color: black;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    padding: 1.5%;
+    border: 2px black solid;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: black;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: black;
+}
+
+.login-title {
+    text-align: center;
+}
+
+.login-header {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dashboard-content {
+    margin: auto;
+    width: 60%;
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-balance {
+    text-align: center;
+}
+
+.dashboard-change {
+    color: green;
+}
+
+.dashboard-currency {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    margin: 20px;
+}
+
+.dashboard-nav {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-nav {
+    background-color: white;
+}

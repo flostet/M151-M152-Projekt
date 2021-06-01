@@ -6,21 +6,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Wallet {
+public class Trade {
     @Id
-    @SequenceGenerator(name = "wallet_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wallet_sequence")
+    @SequenceGenerator(name = "trade_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "trade_sequence")
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
     @Column(nullable = false)
-    private long amount;
+    private long fiatAmount;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "wallet")
-    private List<Trade> trades;
+    @Column(nullable = false)
+    private long tokenAmount;
 
     @ManyToOne(optional = false)
-    private User user;
+    private Wallet wallet;
 
     @ManyToOne(optional = false)
     private Coin coin;

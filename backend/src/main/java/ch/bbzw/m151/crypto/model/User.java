@@ -1,61 +1,50 @@
 package ch.bbzw.m151.crypto.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "cryptoUser")
-@NamedQuery(name = "User.checkPassword", query = "SELECT u FROM User u WHERE u.email = :email and user_password = public.crypt(text(:user_password), text(user_password))")
-public class User implements Serializable {
+@Table(name = "crypto_user")
+@NamedQuery(name = "User.checkPassword", query = "SELECT u FROM User u WHERE u.name = :name and password = public.crypt(text(:password), text(password))")
+public class User {
     @Id
+    @SequenceGenerator(name = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
-    @SequenceGenerator(allocationSize = 1, name = "user_sequence")
     @Column(name = "id", nullable = false, updatable = false)
-    private long userId;
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String name;
 
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String prename;
-
-    @Column(nullable = false)
-    private String surname;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(nullable = false)
     @ColumnTransformer(write = "crypt(?, gen_salt('bf', 8))")
-    private String userPassword;
+    private String password;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserGroup userGroup;
 
-    protected User() {
-    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Wallet> wallets;
 
-    public User(final String email, final String userPassword, final UserGroup userGroup) {
+    public UserGroup getUserGroup() { return this.userGroup; }
+    public void setUserGroup(UserGroup userGroup) { this.userGroup = userGroup; }
+
+    public User(final String name, final String password, final String email, final UserGroup userGroup) {
+        this.name = name;
+        this.password = password;
         this.email = email;
-        this.userPassword = userPassword;
         this.userGroup = userGroup;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    protected User(){}
 
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public UserGroup getUserGroup() {
-        return userGroup;
-    }
-
-    public String getPrename() { return prename; }
-
-    public String getSurname() { return surname; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public String getPassword() { return password; }
 }

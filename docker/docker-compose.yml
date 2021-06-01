@@ -12,7 +12,7 @@ services:
     networks:
       - cryptoplatform
     volumes:
-      - pgadmin-data:/root/.pgadmin
+       - pgadmin-data:/root/.pgadmin
     depends_on:
       - postgres
 

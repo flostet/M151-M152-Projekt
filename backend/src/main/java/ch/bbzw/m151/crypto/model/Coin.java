@@ -1,39 +1,30 @@
 package ch.bbzw.m151.crypto.model;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Coin implements Serializable {
+public class Coin {
     @Id
+    @SequenceGenerator(name = "coin_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "coin_sequence")
-    @SequenceGenerator(allocationSize = 1, name = "coin_sequence")
     @Column(name = "id", nullable = false, updatable = false)
-    private long coinId;
-
-    @Column(nullable = false, unique = true)
-    private String coinName;
+    private Long id;
 
     @Column(nullable = false)
-    private int totalAmount;
+    private long name;
 
-    protected Coin() {
-    }
+    @Column(nullable = false)
+    private long totalAmount;
 
-    public Coin(final String coinName, final int totalAmount) {
-        this.coinName = coinName;
-        this.totalAmount = totalAmount;
-    }
+    @Column(nullable = false)
+    private String coingeckoID;
 
-    public long getId() {
-        return coinId;
-    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coin")
+    private List<Wallet> wallets;
 
-    public String getCoinName() {
-        return coinName;
-    }
-
-    public int getTotalAmount() {
-        return totalAmount;
-    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coin")
+    private List<Trade> trades;
 }
