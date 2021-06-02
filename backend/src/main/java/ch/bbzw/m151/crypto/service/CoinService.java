@@ -1,0 +1,46 @@
+package ch.bbzw.m151.crypto.service;
+
+import ch.bbzw.m151.crypto.dto.CoinDto;
+import ch.bbzw.m151.crypto.model.Coin;
+import ch.bbzw.m151.crypto.repository.CoinRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+@Service
+public class CoinService {
+    private final CoinRepo coinRepo;
+
+    @Autowired
+    public CoinService(CoinRepo coinRepo){
+        this.coinRepo = coinRepo;
+    }
+
+    @Transactional
+    public Coin add(final CoinDto coinDto){
+        Coin coin = new Coin(coinDto.getName(), coinDto.getTotalAmount(), coinDto.getCoingeckoID());
+        return coinRepo.save(coin);
+    }
+
+    @Transactional
+    public void delete(final long id) { coinRepo.deleteById(id); }
+
+    @Transactional(readOnly = true)
+    public Optional<Coin> getbyId(final long id) { return coinRepo.findById(id);}
+
+    @Transactional(readOnly = true)
+    public List<Coin> searchByName(final String s) { return coinRepo.searchByName(s); }
+
+    @Transactional(readOnly = true)
+    public List<Coin> getAll() {
+        Iterable<Coin> icons = coinRepo.findAll();
+        return StreamSupport
+                .stream(icons.spliterator(), false)
+                .collect(Collectors.toList());
+    }
+}

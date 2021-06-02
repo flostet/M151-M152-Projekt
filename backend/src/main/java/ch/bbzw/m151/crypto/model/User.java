@@ -29,11 +29,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserGroup userGroup;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Wallet> wallets;
-
-    public UserGroup getUserGroup() { return this.userGroup; }
+    public UserGroup getUserGroup() { return userGroup; }
     public void setUserGroup(UserGroup userGroup) { this.userGroup = userGroup; }
+
 
     public User(final String name, final String password, final String email, final UserGroup userGroup) {
         this.name = name;

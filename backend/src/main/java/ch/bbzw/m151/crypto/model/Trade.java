@@ -24,4 +24,13 @@ public class Trade {
 
     @ManyToOne(optional = false)
     private Coin coin;
+
+    public long getFiatAmount() { return fiatAmount; }
+    public void setFiatAmount(long fiatAmount) { this.fiatAmount = fiatAmount; }
+    public long getTokenAmount() { return tokenAmount; }
+    public void setTokenAmount(long tokenAmount) { this.tokenAmount = tokenAmount; }
+    public Wallet getWallet() { return wallet; }
+    public void setWallet(Wallet wallet) { this.wallet = wallet; }
+    public Coin getCoin() { return coin; }
+    public void setCoin(Coin coin) { this.coin = coin; }
 }

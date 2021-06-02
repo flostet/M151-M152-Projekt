@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table
 public class Coin {
     @Id
     @SequenceGenerator(name = "coin_sequence", allocationSize = 1)
@@ -14,7 +15,7 @@ public class Coin {
     private Long id;
 
     @Column(nullable = false)
-    private long name;
+    private String name;
 
     @Column(nullable = false)
     private long totalAmount;
@@ -22,9 +23,19 @@ public class Coin {
     @Column(nullable = false)
     private String coingeckoID;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coin")
-    private List<Wallet> wallets;
+    protected Coin(){}
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coin")
-    private List<Trade> trades;
+    public Coin(final String name, final long totalAmount, final String coingeckoID){
+        this.name = name;
+        this.totalAmount = totalAmount;
+        this.coingeckoID = coingeckoID;
+    }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public long getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(long totalAmount) { this.totalAmount = totalAmount; }
+    public String getCoingeckoID() { return coingeckoID; }
+    public void setCoingeckoID(String coingeckoID) { this.coingeckoID = coingeckoID; }
+
 }

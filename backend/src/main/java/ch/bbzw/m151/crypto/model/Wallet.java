@@ -16,12 +16,25 @@ public class Wallet {
     @Column(nullable = false)
     private long amount;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "wallet")
-    private List<Trade> trades;
-
     @ManyToOne(optional = false)
     private User user;
 
     @ManyToOne(optional = false)
     private Coin coin;
+
+    public long getId() {
+        return id;
+    }
+    public long getAmount() { return amount; }
+    public void setAmount(long amount) {
+        this.amount = amount;
+    }
+    public User getUser() { return user; }
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public Coin getCoin() { return coin; }
+    public void setCoin(Coin coin) {
+        this.coin = coin;
+    }
 }
