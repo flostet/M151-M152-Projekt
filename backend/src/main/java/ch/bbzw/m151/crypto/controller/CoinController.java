@@ -29,12 +29,12 @@ public class CoinController {
 
     @DeleteMapping("delete/{id}")
     //@PreAuthorize("hasAuthority('ADMIN')")
-    public void delete(@PathVariable final Long id) {
+    public void delete(@PathVariable final long id) {
         coinService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public Coin getById(@PathVariable final Long id) { return coinService.getbyId(id).orElseThrow(); }
+    public Coin getById(@PathVariable final long id) { return coinService.getbyId(id).orElseThrow(); }
 
     @GetMapping
     public List<Coin> get() {

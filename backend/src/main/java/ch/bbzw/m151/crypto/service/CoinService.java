@@ -34,13 +34,10 @@ public class CoinService {
     public Optional<Coin> getbyId(final long id) { return coinRepo.findById(id);}
 
     @Transactional(readOnly = true)
-    public List<Coin> searchByName(final String s) { return coinRepo.searchByName(s); }
-
-    @Transactional(readOnly = true)
     public List<Coin> getAll() {
-        Iterable<Coin> icons = coinRepo.findAll();
+        Iterable<Coin> coins = coinRepo.findAll();
         return StreamSupport
-                .stream(icons.spliterator(), false)
+                .stream(coins.spliterator(), false)
                 .collect(Collectors.toList());
     }
 }

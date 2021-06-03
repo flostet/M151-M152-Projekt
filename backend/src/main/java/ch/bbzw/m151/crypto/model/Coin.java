@@ -18,14 +18,14 @@ public class Coin {
     private String name;
 
     @Column(nullable = false)
-    private long totalAmount;
+    private int totalAmount;
 
     @Column(nullable = false)
     private String coingeckoID;
 
     protected Coin(){}
 
-    public Coin(final String name, final long totalAmount, final String coingeckoID){
+    public Coin(final String name, final int totalAmount, final String coingeckoID){
         this.name = name;
         this.totalAmount = totalAmount;
         this.coingeckoID = coingeckoID;
@@ -33,8 +33,8 @@ public class Coin {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public long getTotalAmount() { return totalAmount; }
-    public void setTotalAmount(long totalAmount) { this.totalAmount = totalAmount; }
+    public int getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(int totalAmount) { this.totalAmount = totalAmount; }
     public String getCoingeckoID() { return coingeckoID; }
     public void setCoingeckoID(String coingeckoID) { this.coingeckoID = coingeckoID; }
 

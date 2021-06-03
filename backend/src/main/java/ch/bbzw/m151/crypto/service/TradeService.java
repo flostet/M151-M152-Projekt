@@ -43,4 +43,7 @@ public class TradeService {
 
     @Transactional(readOnly = true)
     public Optional<Trade> getbyId(final long id) { return tradeRepo.findById(id);}
+
+    @Transactional(readOnly = true)
+    public List<Trade> getTradesByWallet(final long id) { return tradeRepo.findTradesByWallet(id); }
 }

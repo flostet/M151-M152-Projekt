@@ -11,9 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/wallet")
+@RequestMapping(path = "/wallets")
 //@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
 public class WalletController {
+    @Autowired
     private final WalletService walletService;
 
     @Autowired
@@ -22,17 +23,22 @@ public class WalletController {
     }
 
     @PostMapping("/add")
-//@PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public Wallet add(@RequestBody final WalletDto wallet) {
         return walletService.add(wallet);
     }
 
-    @DeleteMapping("/{id}")
-//@PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("delete/{id}")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable final Long id) {
         walletService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public Wallet getById(@PathVariable final Long id) { return walletService.getById(id).orElseThrow(); }
+    public Wallet getById(@PathVariable final Long id) { return walletService.getbyId(id).orElseThrow(); }
+
+    @GetMapping
+    public List<Wallet> get() {
+        return walletService.getAll();
+    }
 }

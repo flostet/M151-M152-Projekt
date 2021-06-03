@@ -13,9 +13,9 @@ public class WalletDto implements Serializable{
 
     public WalletDto(long id, long coin, long user, long amount){
         this.id = id;
+        this.amount = amount;
         this.coinId = coin;
         this.userId = user;
-        this.amount = amount;
     }
 
     public long getId() { return id; }

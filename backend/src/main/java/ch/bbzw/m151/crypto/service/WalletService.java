@@ -1,20 +1,15 @@
 package ch.bbzw.m151.crypto.service;
 
-import ch.bbzw.m151.crypto.model.User;
+import ch.bbzw.m151.crypto.model.Coin;
 import ch.bbzw.m151.crypto.model.Wallet;
-import ch.bbzw.m151.crypto.repository.WalletRepo;
-import ch.bbzw.m151.crypto.repository.UserRepo;
-import ch.bbzw.m151.crypto.repository.CoinRepo;
 import ch.bbzw.m151.crypto.dto.WalletDto;
-import org.hibernate.mapping.Collection;
+import ch.bbzw.m151.crypto.repository.WalletRepo;
+import ch.bbzw.m151.crypto.repository.CoinRepo;
+import ch.bbzw.m151.crypto.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,6 +41,13 @@ public class WalletService {
     public void delete(final long id) { walletRepo.deleteById(id); }
 
     @Transactional(readOnly = true)
-    public Optional<Wallet> getById(final long id) { return walletRepo.findById(id);}
+    public Optional<Wallet> getbyId(final long id) { return walletRepo.findById(id);}
 
+    @Transactional(readOnly = true)
+    public List<Wallet> getAll() {
+        Iterable<Wallet> wallets = walletRepo.findAll();
+        return StreamSupport
+                .stream(wallets.spliterator(), false)
+                .collect(Collectors.toList());
+    }
 }
