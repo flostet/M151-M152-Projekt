@@ -1,101 +1,62 @@
-@media ( max-width: 500px ) { 
-    .login-form-1{
+@media ( min-width: 500px ) {   
+    .crypto-body{
+        margin: auto;
+        width: 60%;
+    }
+    
+    .navbar-links a{
+        text-align: right;
+    }
+    
+    .dashboard-content{
         padding: 5%;
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
         border: 2px solid black;
-        margin: 20px;
-        margin-top: 5px;
-        border-right: 2x solid black;
     }
 
-    .login-form-2{
+    .prices-table{
+        width: 100%;
+    }
+
+    .prices-table-element{
+        border: 2px solid gray;
         padding: 5%;
+        margin: 10px;
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-        border: 2px solid black;
-        margin: 20px;
-        border-left: 2px solid black;
+        margin-top: 10px;
     }
 
-    .login-logo {
+    .flex-row{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 499px) {
+    .collapsable{
         display: none;
     }
 
-    .login-header {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .dashboard-content {
-        margin: auto;
-        width: 60%;
-        border: 2px solid black;
-        padding: 0px;
+    .flex-row{
         display: flex;
         flex-direction: column;
     }
 }
 
-.login-container{
-    margin-top: 50px;
-    margin-bottom: 5%;
-    flex: auto;
-}
-.login-form-1{
-    padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    border: 2px solid black;
-    border-right: 1px solid black;
-}
-.login-form-1 h3{
-    text-align: center;
-    color: #333;
-}
-.login-form-2{
-    padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    border: 2px solid black;
-    border-left: 1px solid black;
-}
-.login-form-2 h3{
-    text-align: center;
-    color: black;
-}
-.login-container form{
-    padding: 10%;
-}
-.btnSubmit
-{
-    width: 50%;
-    padding: 1.5%;
-    border: 2px black solid;
-    cursor: pointer;
-}
-.login-form-1 .btnSubmit{
-    font-weight: 600;
-    color: black;
-}
-.login-form-2 .btnSubmit{
-    font-weight: 600;
-    color: black;
-}
-
-.login-title {
-    text-align: center;
-}
-
-.login-header {
-    margin-top: 50px;
+.crypto-nav{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    background-color: white;
+    padding: 10px;
 }
 
-.dashboard-content {
-    margin: auto;
-    width: 60%;
-    border: 2px solid black;
-    padding: 10px;
+.dashboard-content{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column{
     display: flex;
     flex-direction: column;
 }
@@ -108,21 +69,42 @@
     color: green;
 }
 
-.dashboard-currency {
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    margin: 20px;
+.dashboard-currencies img{
+    height: 50px;
+    width: 50px;
 }
 
-.dashboard-nav {
-    margin: auto;
-    width: 60%;
-    padding: 10px;
+.dashboard-currency {
+    border: 2px solid gray;
+    padding: 5%;
+    margin: 10px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.burger-menu{
+    float: right;
+}
+
+.prices-table{
+    width: 100%;
+}
+
+.prices-table-element-name-div{
     display: flex;
     flex-direction: column;
 }
 
-.dashboard-nav {
-    background-color: white;
+.prices-table-element-name{
+    display: flex;
+    flex-direction: row;
+}
+
+.prices-table-element{
+    border: 2px solid gray;
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.spacer{
+    height: 20px;
 }
