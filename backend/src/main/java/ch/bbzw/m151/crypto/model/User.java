@@ -22,7 +22,7 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    @ColumnTransformer(write = "crypt(?, gen_salt('bf', 8))")
+    @ColumnTransformer(write = "public.crypt(?, gen_salt('bf', 8))")
     private String password;
 
     @Column(nullable = false)
