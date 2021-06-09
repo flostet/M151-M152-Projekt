@@ -32,7 +32,6 @@ public class User {
     public UserGroup getUserGroup() { return userGroup; }
     public void setUserGroup(UserGroup userGroup) { this.userGroup = userGroup; }
 
-
     public User(final String name, final String password, final String email, final UserGroup userGroup) {
         this.name = name;
         this.password = password;

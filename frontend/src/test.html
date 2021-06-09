@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="coin">
+    <button id="test"></button>
+
+    <script>
+        async function getValue(coinName){
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=' + coinName + '&vs_currencies=usd')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        }
+
+        const btn = document.getElementById('test');
+        btn.addEventListener('click', () => {
+            const name = document.getElementById('coin').value;
+
+            getValue(name);
+        })
+    </script>
+</body>
+</html>

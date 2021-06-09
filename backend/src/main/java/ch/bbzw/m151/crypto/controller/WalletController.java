@@ -30,12 +30,15 @@ public class WalletController {
 
     @DeleteMapping("delete/{id}")
     //@PreAuthorize("hasAuthority('ADMIN')")
-    public void delete(@PathVariable final Long id) {
+    public void delete(@PathVariable final long id) {
         walletService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public Wallet getById(@PathVariable final Long id) { return walletService.getbyId(id).orElseThrow(); }
+    public Wallet getById(@PathVariable final long id) { return walletService.getbyId(id).orElseThrow(); }
+
+    @GetMapping("/user/{id}")
+    public List<Wallet> getByName(@PathVariable final long id) { return walletService.getByUser(id);}
 
     @GetMapping
     public List<Wallet> get() {

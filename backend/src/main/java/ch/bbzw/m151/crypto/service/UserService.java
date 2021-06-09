@@ -32,5 +32,5 @@ public class UserService {
         return userRepo.save(user);
     }
 
-    public Optional<User> getById(final long id) { return userRepo.findById(id);}
+    public User getByName(final String name) { return userRepo.getByName(name); }
 }

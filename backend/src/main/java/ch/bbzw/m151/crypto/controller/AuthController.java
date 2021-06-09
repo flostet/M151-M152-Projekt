@@ -26,17 +26,20 @@ public class AuthController {
         this.authenticationProvider = authenticationProvider;
     }
 
+    @CrossOrigin()
     @PostMapping("/register")
     public User register(@RequestBody final User user){
         return userService.register(user);
     }
 
+    @CrossOrigin()
     @PostMapping("/login")
     public void login(@RequestBody final UserDto loginRequest){
         final Authentication authentication = authenticationProvider.login(loginRequest);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
+    @CrossOrigin()
     @GetMapping("/info")
     public Authentication getInfo() {
         final SecurityContext context = SecurityContextHolder.getContext();

@@ -50,4 +50,7 @@ public class WalletService {
                 .stream(wallets.spliterator(), false)
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public List<Wallet> getByUser(final long id) { return walletRepo.getByUser(id); }
 }
