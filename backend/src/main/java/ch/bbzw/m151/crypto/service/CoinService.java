@@ -23,7 +23,7 @@ public class CoinService {
 
     @Transactional
     public Coin add(final CoinDto coinDto){
-        Coin coin = new Coin(coinDto.getName(), coinDto.getTotalAmount(), coinDto.getCoingeckoID());
+        Coin coin = new Coin(coinDto.getName(), coinDto.getCoingeckoID(), coinDto.getShortname());
         return coinRepo.save(coin);
     }
 

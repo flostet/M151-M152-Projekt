@@ -37,8 +37,8 @@ public class WalletController {
     @GetMapping("/{id}")
     public Wallet getById(@PathVariable final long id) { return walletService.getbyId(id).orElseThrow(); }
 
-    @GetMapping("/user/{id}")
-    public List<Wallet> getByName(@PathVariable final long id) { return walletService.getByUser(id);}
+    @GetMapping("/user/{name}")
+    public List<Wallet> getByName(@PathVariable final String name) { return walletService.getByUser(name);}
 
     @GetMapping
     public List<Wallet> get() {

@@ -31,7 +31,6 @@ public class WalletService {
     @Transactional
     public Wallet add(final WalletDto walletDto){
         Wallet wallet = new Wallet();
-        wallet.setAmount(walletDto.getAmount());
         wallet.setCoin(coinRepo.findById(walletDto.getCoinId()).orElseThrow());
         wallet.setUser(userRepo.findById(walletDto.getUserId()).orElseThrow());
         return walletRepo.save(wallet);
@@ -52,5 +51,5 @@ public class WalletService {
     }
 
     @Transactional
-    public List<Wallet> getByUser(final long id) { return walletRepo.getByUser(id); }
+    public List<Wallet> getByUser(final String name) { return walletRepo.getByUser(name); }
 }

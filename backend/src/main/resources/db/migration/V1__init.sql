@@ -10,7 +10,7 @@ create table coin
     id int8 not null,
     coingeckoid varchar(255) not null,
     name varchar(255) not null,
-    total_amount int4 not null,
+    shortname varchar(255) not null,
     primary key (id)
 );
 
@@ -18,6 +18,7 @@ create table crypto_user
 (
     id int8 not null,
     email varchar(255) not null,
+    fiat_wallet bigint default 0,
     name varchar(255) not null,
     password varchar(255) not null,
     user_group varchar(255) not null,
@@ -37,7 +38,8 @@ create table trade
 create table wallet
 (
     id int8 not null,
-    amount int8 not null,
+    coinamount bigint default 0,
+    investedamount bigint default 0,
     coin_id int8 not null,
     user_id int8 not null,
     primary key (id)

@@ -14,21 +14,20 @@ public class Wallet {
     @Column(name = "id", nullable = false, updatable = false)
     private long id;
 
-    @Column(nullable = false)
-    private long amount;
-
     @ManyToOne(optional = false)
     private User user;
 
     @ManyToOne(optional = false)
     private Coin coin;
 
+    @Column(columnDefinition = "bigint default 0")
+    private long coinamount;
+
+    @Column(columnDefinition = "bigint default 0")
+    private long investedamount;
+
     public long getId() {
         return id;
-    }
-    public long getAmount() { return amount; }
-    public void setAmount(long amount) {
-        this.amount = amount;
     }
     public User getUser() { return user; }
     public void setUser(User user) {
@@ -38,4 +37,8 @@ public class Wallet {
     public void setCoin(Coin coin) {
         this.coin = coin;
     }
+    public long getCoinamount() { return coinamount; }
+    public void setCoinamount(long amount) {this.coinamount = amount; }
+    public long getInvestedamount() { return investedamount; }
+    public void setInvestedamount(long amount) { this.investedamount = amount; }
 }

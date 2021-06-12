@@ -6,16 +6,16 @@ public class CoinDto implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private final String name;
-    private final int totalAmount;
     private final String coingeckoID;
+    private final String shortname;
 
-    private CoinDto(String name, int totalAmount, String coingeckoID){
+    private CoinDto(String name, String coingeckoID, String shortname){
         this.name = name;
-        this.totalAmount = totalAmount;
         this.coingeckoID = coingeckoID;
+        this.shortname = shortname;
     }
 
     public String getName() { return name; }
-    public int getTotalAmount() { return totalAmount; }
     public String getCoingeckoID() { return coingeckoID; }
+    public String getShortname() { return shortname; }
 }
