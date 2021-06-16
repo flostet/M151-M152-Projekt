@@ -39,6 +39,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
+
     @GetMapping("/info")
     public Authentication getInfo() {
         final SecurityContext context = SecurityContextHolder.getContext();

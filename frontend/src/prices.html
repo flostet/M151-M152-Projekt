@@ -28,13 +28,10 @@
             <div class="collapse navbar-collapse navbar-links" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="dashboard.html">Portfolio <span class="sr-only active"></span></a>
+                        <a id="link_dashboard" class="nav-link" href="dashboard.html">Portfolio <span class="sr-only active"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="prices.html">Prices <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Account.html">Account <span class="sr-only"></span></a>
+                        <a id="link_prices" class="nav-link" href="prices.html">Prices <span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
@@ -45,89 +42,17 @@
                 <h3>Market Prices</h3>
             </div>
 
-            <input type="search" placeholder="search all coins">
-
             <div class="prices-overview">
-                <table class="prices-table">
+                <table id="prices-table" class="prices-table">
                     <tr>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th class='collapsable'>Market Cap</th>
-                        <th class='collapsable'>Change (24h)</th>
-                        <th class='collapsable'></th>
+                        <th>Price (CHF)</th>
+                        <th class='collapsable'>Market Cap (CHF)</th>
+                        <th class='collapsable'>Change (24h CHF)</th>
+                        <th class='collapsable'>Buy</th>
                     </tr>
 
-                    <tr class="spacer"></tr>
-
-                        <tr class="prices-table-element">
-                            <td class="prices-table-element-name">
-                                <img src="assets/logo-test.png">
-                                <div class="prices-table-element-name-div">
-                                    <a>BTC</a>
-                                    <a>Bitcoin</a>
-                                </div>
-                            </td>
-                            <td>CHF 45'732.14</td>
-                            <td class='collapsable'>CHF 836'023'230</td>
-                            <td class='collapsable'>-12.08%</td>
-                            <td class='collapsable' >
-                                <button type="button">Buy</button>
-                            </td>
-                        </tr>
-
-                        <tr class="spacer"></tr>
-
-                        <tr class="prices-table-element">
-                            <td class="prices-table-element-name">
-                                <img src="assets/logo-test.png">
-                                <div class="prices-table-element-name-div">
-                                    <a>BTC</a>
-                                    <a>Bitcoin</a>
-                                </div>
-                            </td>
-                            <td>CHF 45'732.14</td>
-                            <td class='collapsable'>CHF 836'023'230</td>
-                            <td class='collapsable'>-12.08%</td>
-                            <td class='collapsable'>
-                                <button type="button">Buy</button>
-                            </td>
-                        </tr>
-
-                        <tr class="spacer"></tr>
-
-                        <tr class="prices-table-element">
-                            <td class="prices-table-element-name">
-                                <img src="assets/logo-test.png">
-                                <div class="prices-table-element-name-div">
-                                    <a>BTC</a>
-                                    <a>Bitcoin</a>
-                                </div>
-                            </td>
-                            <td>CHF 45'732.14</td>
-                            <td class='collapsable'>CHF 836'023'230</td>
-                            <td class='collapsable'>-12.08%</td>
-                            <td class='collapsable'>
-                                <button type="button">Buy</button>
-                            </td>
-                        </tr>
-
-                        <tr class="spacer"></tr>
-
-                        <tr class="prices-table-element">
-                            <td class="prices-table-element-name">
-                                <img src="assets/logo-test.png">
-                                <div class="prices-table-element-name-div">
-                                    <a>BTC</a>
-                                    <a>Bitcoin</a>
-                                </div>
-                            </td>
-                            <td>CHF 45'732.14</td>
-                            <td class='collapsable'>CHF 836'023'230</td>
-                            <td class='collapsable'>-12.08%</td>
-                            <td class='collapsable'>
-                                <button type="button">Buy</button>
-                            </td>
-                        </tr>
+                    
                 </table>
             </div>
         </div>
@@ -137,6 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+    <script src="/js/prices.js" type="module"></script>
 </body>
 
 </html>

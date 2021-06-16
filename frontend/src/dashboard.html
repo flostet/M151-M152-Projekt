@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+ 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,13 +27,10 @@
       <div class="collapse navbar-collapse navbar-links" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="dashboard.html">Portfolio <span class="sr-only active"></span></a>
+            <a id="link_dashboard" class="nav-link" href="dashboard.html">Portfolio <span class="sr-only active"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="prices.html">Prices <span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Account.html">Account <span class="sr-only"></span></a>
+            <a id="link_prices" class="nav-link" href="prices.html">Prices <span class="sr-only"></span></a>
           </li>
         </ul>
       </div>
@@ -42,36 +39,18 @@
     <div class="container dashboard-content">
       <div class="dashboard-balance">
         <h3>My Portfolio</h3>
-        <h1 id="dashboard-amount">CHF 69'420.69</h1>
-        <h3 class="dashboard-change">+3'356.68</h3>
+        <h1 id="totalAmount">0</h1>
+        <h3 id="totalChange" class="dashboard-change"></h3>
       </div>
 
-      <div class="dashboard-currencies">
-        <div class="dashboard-currency">
-          <img src="assets/logo-test.png">
-          <a>Swiss Franc</a>
-          <a>CHF 4'576.45</a>
-        </div>
-        <div class="dashboard-currency">
-          <img src="assets/logo-test.png">
-          <a>Swiss Franc</a>
-          <a>CHF 4'576.45</a>
-        </div>
-        <div class="dashboard-currency">
-          <img src="assets/logo-test.png">
-          <a>Swiss Franc</a>
-          <a>CHF 4'576.45</a>
-        </div>
-        <div class="dashboard-currency">
-          <img src="assets/logo-test.png">
-          <a>Swiss Franc</a>
-          <a>CHF 4'576.45</a>
-        </div>
+      <div id="walletDashboard" class="dashboard-currencies">
+        
       </div>
     </div>
   </div>
 
   <!-- Optional JavaScript -->
+  <script src="/js/dashboard.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 

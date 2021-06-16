@@ -1,5 +1,6 @@
 package ch.bbzw.m151.crypto.config;
 
+import ch.bbzw.m151.crypto.auth.PgAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -22,24 +23,22 @@ import org.springframework.web.filter.CorsFilter;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
-    private final AuthenticationProvider authenticationProvider;
+    private final PgAuthenticationProvider authenticationProvider;
 
     @Autowired
-    public WebSecurityConfig(final AuthenticationProvider authenticationProvider) {
+    public WebSecurityConfig(final PgAuthenticationProvider authenticationProvider) {
         this.authenticationProvider = authenticationProvider;
     }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .regexMatchers("/coins/.*", "/wallets/.*", "/auth/login", "/auth/register", "/auth/info", "/trades/.*", "/user/.*")
+                .regexMatchers("/coins/.*", "/wallets/.*", "/auth/login", "/auth/register", "/trades/.*", "/user/.*", "/coins/delete/.*")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().csrf()
                 .disable();
-
-        http.cors();
     }
 
     @Autowired

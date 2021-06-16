@@ -3,7 +3,9 @@ package ch.bbzw.m151.crypto.model;
 import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.*;
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name = "crypto_user")

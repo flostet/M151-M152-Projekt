@@ -1,6 +1,8 @@
 package ch.bbzw.m151.crypto.dto;
 
 import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.util.Random;
 
 public class UserDto implements Serializable {
     private static final long serialVersionUID = 1L;

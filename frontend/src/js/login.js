@@ -4,6 +4,8 @@ import { register } from './script.js';
 const btnLogin = document.getElementById('btnLogin')
 const btnRegister = document.getElementById('btnRegister')
 
+
+
 btnLogin.addEventListener('click', () => {
     const name = document.getElementById('loginName').value;
     const password = document.getElementById('loginPwd').value;

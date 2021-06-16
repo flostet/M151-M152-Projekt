@@ -27,10 +27,10 @@ public class CoinController {
         return coinService.add(coin);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("delete/{name}")
     //@PreAuthorize("hasAuthority('ADMIN')")
-    public void delete(@PathVariable final long id) {
-        coinService.delete(id);
+    public void delete(@PathVariable final String name) {
+        coinService.delete(name);
     }
 
     @GetMapping("/{id}")

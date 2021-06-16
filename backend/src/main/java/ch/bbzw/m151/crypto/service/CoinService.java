@@ -28,7 +28,7 @@ public class CoinService {
     }
 
     @Transactional
-    public void delete(final long id) { coinRepo.deleteById(id); }
+    public void delete(final String name) { coinRepo.deleteByName(name); }
 
     @Transactional(readOnly = true)
     public Optional<Coin> getbyId(final long id) { return coinRepo.findById(id);}
