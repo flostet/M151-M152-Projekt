@@ -13,8 +13,6 @@ Die erste Abgabe, der **Projektbeschrieb**, ist unter documentation/documentatio
 # How to use
 To Use the WebInterface go to http://localhost and then you should see the index page.
 
-Or go to crypto.yakohami.ch
-
 # Login Data
 Normal User:
 * name: testli
