@@ -13,31 +13,31 @@ services:
   postgres:
     container_name: postgres
     image: postgres:13-alpine
-     environment:
-       - POSTGRES_USER=admin
+    environment:
+      - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=secret
-       - POSTGRES_DB=cryptoplatform
-     ports:
-       - 5432:5432
-     networks:
-       - crypto
+      - POSTGRES_DB=cryptoplatform
+    ports:
+      - 5432:5432
+    networks:
+      - crypto
      volumes:
-       - postgres-db:/var/lib/postgresql/data
+      - postgres-db:/var/lib/postgresql/data
 
    pgadmin:
-     container_name: pgadmin
-     image: dpage/pgadmin4:5.2
+      container_name: pgadmin
+      image: dpage/pgadmin4:5.2
      environment:
-       - PGADMIN_DEFAULT_EMAIL=admin@admin.ch
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.ch
       - PGADMIN_DEFAULT_PASSWORD=secret
      ports:
-       - 5050:80
+      - 5050:80
      networks:
-       - crypto
+      - crypto
      volumes:
-       - pgadmin-data:/root/.pgadmin
+      - pgadmin-data:/root/.pgadmin
     depends_on:
-       - postgres
+      - postgres
 
 
 networks:
