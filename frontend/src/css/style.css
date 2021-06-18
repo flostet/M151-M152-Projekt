@@ -57,6 +57,11 @@
     }
 }
 
+.hidelink{
+    text-decoration: none;
+    color: black;
+}
+
 .crypto-nav{
     display: flex;
     flex-direction: row;
@@ -100,6 +105,15 @@
 }
 
 .detail-price {
+    border: 2px solid gray;
+    padding: 5%;
+    margin: 10px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-card {
     border: 2px solid gray;
     padding: 5%;
     margin: 10px;

@@ -138,6 +138,7 @@ async function buyCoin(){
   var coinid = await coin_resp.json();
 
   var coinamount = inputbuy.value;
+  console.log(coingecko.market_data.current_price.chf);
   var investedamount = (coingecko.market_data.current_price.chf * coinamount); 
 
   var wallets = await getWalletsfromUser(user.name);
@@ -146,7 +147,7 @@ async function buyCoin(){
   wallets.forEach((wallet) => {
     if (wallet.coin.coingeckoID == detailCoin) {
       existingwallet = wallet;
-      investedamount = (parseFloat(investedamount) + parseFloat(wallet.investedamount));
+      investedamount = ((parseFloat(investedamount) + parseFloat(wallet.investedamount)));
       coinamount = (parseFloat(coinamount) + parseFloat(wallet.coinamount));
       deleteWalletWithWalletID(wallet.id);
     }
