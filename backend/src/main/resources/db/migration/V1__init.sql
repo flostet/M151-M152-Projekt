@@ -18,7 +18,6 @@ create table crypto_user
 (
     id int8 not null,
     email varchar(255) not null,
-    fiat_wallet bigint default 0,
     name varchar(255) not null,
     password varchar(255) not null,
     user_group varchar(255) not null,

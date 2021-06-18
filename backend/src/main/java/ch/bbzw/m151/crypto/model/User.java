@@ -27,9 +27,6 @@ public class User {
     @ColumnTransformer(write = "public.crypt(?, gen_salt('bf', 8))")
     private String password;
 
-    @Column(columnDefinition = "bigint default 0")
-    private long fiatWallet;
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserGroup userGroup;
@@ -49,5 +46,4 @@ public class User {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getPassword() { return password; }
-    public long getFiatWallet() { return fiatWallet; }
 }

@@ -66,6 +66,3 @@ values ('vechain', 'VeChain', 'vet');
 
 insert into coin (coingeckoid, name, shortname)
 values ('safemoon', 'SafeMoon', 'safemoon');
-
-insert into coin (coingeckoid, name, shortname)
-values ('schweizerfranken', 'Schweizer Franken', 'chf');

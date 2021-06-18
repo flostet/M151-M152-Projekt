@@ -9,13 +9,11 @@ public class UserDto implements Serializable {
     private final String name;
     private final String password;
     private final String email;
-    private final long fiatWallet;
 
     public UserDto(final String name, final String password, final String email) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.fiatWallet = 0;
     }
 
     public String getName() {
@@ -25,8 +23,6 @@ public class UserDto implements Serializable {
     public String getPassword() {
         return password;
     }
-
-    public long getFiatWallet() { return fiatWallet; }
 
     public String getEmail() { return email; }
 }
