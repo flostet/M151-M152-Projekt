@@ -7,19 +7,19 @@ create sequence wallet_sequence start 1 increment 1;
 create table coin
 (
     id int8 not null,
-    coingeckoid varchar(255) not null,
-    name varchar(255) not null,
-    shortname varchar(255) not null,
+    coingeckoid varchar(255),
+    name varchar(255),
+    shortname varchar(255),
     primary key (id)
 );
 
 create table crypto_user
 (
     id int8 not null,
-    email varchar(255) not null,
-    name varchar(255) not null,
-    password varchar(255) not null,
-    user_group varchar(255) not null,
+    email varchar(255),
+    name varchar(255),
+    password varchar(255),
+    user_group varchar(255),
     primary key (id)
 );
 

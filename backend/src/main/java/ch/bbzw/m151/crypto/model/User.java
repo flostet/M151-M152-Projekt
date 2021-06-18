@@ -14,20 +14,20 @@ public class User {
     @Id
     @SequenceGenerator(name = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column()
     @ColumnTransformer(write = "public.crypt(?, gen_salt('bf', 8))")
     private String password;
 
-    @Column(nullable = false)
+    @Column()
     @Enumerated(EnumType.STRING)
     private UserGroup userGroup;
 

@@ -2,6 +2,8 @@ import { getURLParam } from "./script.js";
 import { getCoinFromCoingecko } from "./script.js";
 import { getAuth } from "./script.js";
 import { getWalletsfromUser } from "./script.js";
+import { addWallet } from "./script.js";
+import { deleteWalletWithWalletID } from "./script.js";
 
 const detailCoin = getURLParam();
 const coingecko = await getCoinFromCoingecko(detailCoin);
@@ -19,6 +21,13 @@ const marketcap = document.getElementById("market-cap");
 const investedmoney = document.getElementById("investedmoney");
 const valuenow = document.getElementById("valuenow");
 const returnoninvestment = document.getElementById("returnoninvestment");
+const walletcard = document.getElementById("wallet-card");
+const inputbuy = document.getElementById("buy-coinamount");
+const buttonBuy = document.getElementById("buynow");
+
+buttonBuy.addEventListener('click', async() => {
+  buyCoin();
+})
 
 loadPriceWidget();
 
@@ -52,7 +61,6 @@ async function loadPriceWidget() {
 
 async function getWalletForCoin() {
   var wallets = await getWalletsfromUser(user.name);
-  var coinwallet;
 
   wallets.forEach((wallet) => {
     if (wallet.coin.coingeckoID == detailCoin) {
@@ -73,10 +81,13 @@ async function getWalletForCoin() {
       } else if (returnmoney >= 0) {
         returnoninvestment.className = "price-down";
       }
-    } else {
-      coinwallet = null;
     }
   });
+
+  if(valuenow.innerText == ''){
+    walletcard.innerHTML = '';
+        walletcard.className = 'hidden';
+  }
 }
 
 async function loadChart() {
@@ -117,4 +128,34 @@ async function loadChart() {
   };
 
   var myChart = new Chart(document.getElementById("price-chart"), config);
+}
+
+async function buyCoin(){
+  var user_resp = await fetch('http://localhost:8080/user/id/' + user.name)
+  var userId = await user_resp.json()
+  
+  var coin_resp = await fetch('http://localhost:8080/coins/id/' + detailCoin)
+  var coinid = await coin_resp.json();
+
+  var coinamount = inputbuy.value;
+  var investedamount = (coingecko.market_data.current_price.chf * coinamount); 
+
+  var wallets = await getWalletsfromUser(user.name);
+  var existingwallet = null;
+
+  wallets.forEach((wallet) => {
+    if (wallet.coin.coingeckoID == detailCoin) {
+      existingwallet = wallet;
+      investedamount = (parseFloat(investedamount) + parseFloat(wallet.investedamount));
+      coinamount = (parseFloat(coinamount) + parseFloat(wallet.coinamount));
+      deleteWalletWithWalletID(wallet.id);
+    }
+  });
+    const data = {
+      "coinId": coinid,
+      "userId": userId,
+      "coinamount": coinamount,
+      "investedamount": investedamount
+    }
+    addWallet(data);
 }

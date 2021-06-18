@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,7 +30,12 @@ public class WalletService {
     }
 
     @Transactional
-    public Wallet add(final Wallet wallet){
+    public Wallet add(final WalletDto walletDto){
+        Wallet wallet = new Wallet();
+        wallet.setCoinamount(walletDto.getCoinamount());
+        wallet.setInvestedamount(walletDto.getInvestedamountmount());
+        wallet.setUser(userRepo.getById(walletDto.getUserId()));
+        wallet.setCoin(coinRepo.getById(walletDto.getCoinId()));
         return walletRepo.save(wallet);
     }
 
@@ -38,6 +44,9 @@ public class WalletService {
 
     @Transactional
     public void deleteWithId(final long coinid) { walletRepo.deleteWithId(coinid); }
+
+    @Transactional
+    public void deleteWithWalletId(final long walletid) { walletRepo.deleteWithWalletId(walletid); }
 
     @Transactional(readOnly = true)
     public Optional<Wallet> getbyId(final long id) { return walletRepo.findById(id);}

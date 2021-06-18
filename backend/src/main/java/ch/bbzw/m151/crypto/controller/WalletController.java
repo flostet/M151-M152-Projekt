@@ -24,14 +24,18 @@ public class WalletController {
 
     @PostMapping("/add")
     //@PreAuthorize("hasAuthority('USER')")
-    public Wallet add(@RequestBody final Wallet wallet) {
+    public Wallet add(@RequestBody final WalletDto wallet) {
         return walletService.add(wallet);
     }
 
-    @DeleteMapping("/delete/{id}")
-    //@PreAuthorize("hasAuthority('USER')")
+    @DeleteMapping("/delete/coin/{id}")
     public void delete(@PathVariable final long id) {
         walletService.deleteWithId(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteWithWalletId(@PathVariable final long id) {
+        walletService.deleteWithWalletId(id);
     }
 
     @GetMapping("/{id}")

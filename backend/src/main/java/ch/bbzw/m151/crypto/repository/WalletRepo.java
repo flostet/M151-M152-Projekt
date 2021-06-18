@@ -15,4 +15,8 @@ public interface WalletRepo extends CrudRepository<Wallet, Long> {
     @Modifying
     @Query(value = "DELETE FROM Wallet WHERE coin_id = ?1", nativeQuery = true)
     void deleteWithId(long coinid);
+
+    @Modifying
+    @Query(value = "DELETE FROM Wallet WHERE id = ?1", nativeQuery = true)
+    void deleteWithWalletId(long walletID);
 }

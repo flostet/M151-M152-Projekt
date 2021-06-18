@@ -89,7 +89,7 @@ export async function deleteCoin(name){
 }
 
 export async function deleteWallet(id){
-    const response = await fetch('http://localhost:8080/wallets/delete/' + id, {
+    const response = await fetch('http://localhost:8080/wallets/delete/coin/' + id, {
         method: 'DELETE',
     });
     return response.status;
@@ -118,4 +118,22 @@ export async function addCoin(name, shortcode, coingecko){
     })
 
     return response.json();
+}
+
+export async function addWallet(data){
+  const resp = await fetch('http://localhost:8080/wallets/add', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+
+  console.log(await resp.json());
+}
+
+export async function deleteWalletWithWalletID(id){
+    const response = await fetch('http://localhost:8080/wallets/delete/' + id, {
+        method: 'DELETE',
+    });
+    return response.status;
 }

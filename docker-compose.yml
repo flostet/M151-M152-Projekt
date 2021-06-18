@@ -6,7 +6,6 @@ services:
     build: ./frontend/
     ports:
       - 5500:5500
-      - 443:443
     networks:
       - crypto
     volumes:

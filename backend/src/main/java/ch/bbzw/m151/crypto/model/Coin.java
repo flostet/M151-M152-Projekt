@@ -14,13 +14,13 @@ public class Coin {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private String name;
 
-    @Column(nullable = false)
+    @Column()
     private String coingeckoID;
 
-    @Column(nullable = false)
+    @Column()
     private String shortname;
 
     protected Coin(){}

@@ -17,25 +17,26 @@
 <body class="website-body">
 
     <div class="crypto-body">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light crypto-nav">
-            <div class="col-lg-1 nav-logo">
-                <img src="assets/logo-test.png" class="img-fluid" alt="">
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">
+                    <img src="/assets/Logo_Crypto_Platform.svg" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                  </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-links" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="dashboard.html">Portfolio <span class="sr-only active"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="prices.html">Prices <span class="sr-only"></span></a>
-                    </li>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/dashboard.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/prices.html">Prices</a>
+                  </li>
                 </ul>
+              </div>
             </div>
-        </nav>
+          </nav>
 
         <div class="container dashboard-content">
             <div class="dashboard-balance">
@@ -63,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="detail-price">
+            <div id="wallet-card" class="detail-price">
                 <h3>Wallet</h3>
                 <div class="flex-row">
                     <div class="flex-column">
@@ -82,10 +83,10 @@
             </div>
 
             <div class="dashboard-currency flex-column">
-                <h3>Buy Bitcoin</h3>
-                <a>Amount in BTC:</a>
-                <input type="number">
-                <button type="button">Buy Now</button>
+                <h3>Buy</h3>
+                <a>Amount in Coins:</a>
+                <input id="buy-coinamount" type="number">
+                <button id="buynow" type="button">Buy Now</button>
             </div>
         </div>
             
@@ -93,10 +94,8 @@
 
     <!-- Optional JavaScript -->
     <script src="./js/detail.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

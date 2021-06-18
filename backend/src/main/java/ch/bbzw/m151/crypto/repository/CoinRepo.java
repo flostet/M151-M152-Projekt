@@ -17,4 +17,7 @@ public interface CoinRepo extends CrudRepository<Coin, Long> {
 
     @Query(value = "SELECT id FROM coin WHERE coingeckoid = ?1", nativeQuery = true)
     long getIDByName(String coingeckoID);
+
+    @Query(value = "SELECT * FROM coin WHERE id = ?1", nativeQuery = true)
+    Coin getById(long id);
 }

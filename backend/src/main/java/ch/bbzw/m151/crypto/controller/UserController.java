@@ -23,4 +23,7 @@ public class UserController {
 
     @GetMapping("/{name}")
     public User getByName(@PathVariable final String name) { return userService.getByName(name); }
+
+    @GetMapping("/id/{name}")
+    public long getIdByName(@PathVariable final String name) { return userService.getIdByName(name); }
 }

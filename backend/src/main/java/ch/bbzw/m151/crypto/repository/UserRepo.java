@@ -9,4 +9,10 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT * FROM crypto_user WHERE name = ?1", nativeQuery = true)
     User getByName(String name);
+
+    @Query(value = "SELECT * FROM crypto_user WHERE id = ?1", nativeQuery = true)
+    User getById(long id);
+
+    @Query(value = "SELECT id FROM crypto_user WHERE name = ?1", nativeQuery = true)
+    long getIdByName(String name);
 }

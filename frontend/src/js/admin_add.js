@@ -1,4 +1,4 @@
-import { addCoin } from "./script";
+import { addCoin } from "./script.js";
 
 const name = document.getElementById('asset-name');
 const shortcode = document.getElementById('asset-shortcode');
