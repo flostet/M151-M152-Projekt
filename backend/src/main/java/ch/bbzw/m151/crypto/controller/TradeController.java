@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/trades")
-//@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
 public class TradeController {
     private final TradeService tradeService;
 
@@ -22,13 +22,13 @@ public class TradeController {
     }
 
     @PostMapping("/add")
-//@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('USER')")
     public Trade add(@RequestBody final TradeDto trade) {
         return tradeService.add(trade);
     }
 
     @DeleteMapping("/{id}")
-//@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('USER')")
     public void delete(@PathVariable final long id) {
         tradeService.delete(id);
     }

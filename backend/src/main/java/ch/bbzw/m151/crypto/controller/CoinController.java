@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/coins")
-//@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
 public class CoinController {
     private final CoinService coinService;
 
@@ -22,13 +22,13 @@ public class CoinController {
     }
 
     @PostMapping("/add")
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Coin add(@RequestBody final CoinDto coin) {
         return coinService.add(coin);
     }
 
     @DeleteMapping("delete/{name}")
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable final String name) {
         coinService.delete(name);
     }
