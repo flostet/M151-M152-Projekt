@@ -1,10 +1,6 @@
 package ch.bbzw.m151.crypto.model;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-
 import javax.persistence.*;
-import java.util.List;
-import java.util.Optional;
 
 @Entity
 public class Wallet {

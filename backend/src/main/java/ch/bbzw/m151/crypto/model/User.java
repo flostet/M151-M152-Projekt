@@ -3,9 +3,6 @@ package ch.bbzw.m151.crypto.model;
 import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.*;
-import java.nio.charset.Charset;
-import java.util.List;
-import java.util.Random;
 
 @Entity
 @Table(name = "crypto_user")
@@ -14,20 +11,20 @@ public class User {
     @Id
     @SequenceGenerator(name = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
-    @Column(name = "id", updatable = false)
+    @Column(name = "id",nullable = false, updatable = false)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @Column()
+    @Column(nullable = false)
     @ColumnTransformer(write = "public.crypt(?, gen_salt('bf', 8))")
     private String password;
 
-    @Column()
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserGroup userGroup;
 

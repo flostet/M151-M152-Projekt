@@ -1,7 +1,6 @@
 package ch.bbzw.m151.crypto.auth;
 
 import ch.bbzw.m151.crypto.dto.UserDto;
-import ch.bbzw.m151.crypto.model.User;
 import ch.bbzw.m151.crypto.model.UserGroup;
 import ch.bbzw.m151.crypto.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
-import java.util.Optional;
 
 @Component
 public class PgAuthenticationProvider implements AuthenticationProvider {

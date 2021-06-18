@@ -1,11 +1,11 @@
 version: "3.9"
 services:
-  
   frontend:
-    container_name: crypto-frontend
-    build: ./frontend/
+    container_name: crypt-frontend
+    build: ./frontend
     ports:
-      - 5500:5500
+      - 80:80
+      - 443:443
     networks:
       - crypto
     volumes:
@@ -20,7 +20,7 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=cryptoplatform
+      - POSTGRES_DB=fanicon
     ports:
       - 5432:5432
     networks:
@@ -42,6 +42,7 @@ services:
       - pgadmin-data:/root/.pgadmin
     depends_on:
       - postgres
+
 
 networks:
   crypto:

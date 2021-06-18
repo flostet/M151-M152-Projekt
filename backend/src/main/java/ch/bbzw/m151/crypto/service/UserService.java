@@ -2,13 +2,11 @@ package ch.bbzw.m151.crypto.service;
 
 import ch.bbzw.m151.crypto.model.UserGroup;
 import ch.bbzw.m151.crypto.model.User;
-import ch.bbzw.m151.crypto.model.Wallet;
 import ch.bbzw.m151.crypto.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service

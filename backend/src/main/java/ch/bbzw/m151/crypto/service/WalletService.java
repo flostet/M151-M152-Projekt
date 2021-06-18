@@ -1,6 +1,5 @@
 package ch.bbzw.m151.crypto.service;
 
-import ch.bbzw.m151.crypto.model.Coin;
 import ch.bbzw.m151.crypto.model.Wallet;
 import ch.bbzw.m151.crypto.dto.WalletDto;
 import ch.bbzw.m151.crypto.repository.WalletRepo;
@@ -9,8 +8,6 @@ import ch.bbzw.m151.crypto.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

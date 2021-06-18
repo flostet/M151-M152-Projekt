@@ -1,9 +1,6 @@
 package ch.bbzw.m151.crypto.model;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
@@ -14,13 +11,13 @@ public class Coin {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
-    @Column()
+    @Column(nullable = false)
     private String name;
 
-    @Column()
+    @Column(nullable = false)
     private String coingeckoID;
 
-    @Column()
+    @Column(nullable = false)
     private String shortname;
 
     protected Coin(){}

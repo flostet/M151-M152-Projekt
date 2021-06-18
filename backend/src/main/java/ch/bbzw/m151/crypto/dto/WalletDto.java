@@ -1,7 +1,6 @@
 package ch.bbzw.m151.crypto.dto;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class WalletDto implements Serializable{
     private static final long serialVersionUID = 1L;
