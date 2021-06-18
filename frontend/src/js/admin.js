@@ -1,15 +1,22 @@
-import { loadCoins } from "./script.js";
+import { getAllWallets, loadCoins } from "./script.js";
 import { getCoinFromCoingecko } from "./script.js";
 import { getURLParam } from "./script.js";
 import { deleteCoin } from "./script.js";
+import { deleteWallet } from "./script.js";
 
 const pricesTable = document.getElementById("prices-table");
+const delbutton = document.getElementById('del-button');
 
 loadCoinTable();
+
+delbutton.addEventListener('click', async() => {
+    location.href = 'admin_add.html';
+})
 
 async function loadCoinTable(){
     var coins = await loadCoins();
     const name = getURLParam();
+    pricesTable.innerHTML = "<tr> <th>Name</th> <th>Price (CHF)</th> <th class='collapsable'>Market Cap (CHF)</th> <th class='collapsable'>Change (24h CHF)</th> <th class='collapsable'>Delete</th> </tr>";
 
     coins.forEach((coin) => {
         if(coin.shortname != 'chf'){
@@ -20,7 +27,6 @@ async function loadCoinTable(){
 
 async function createCoinCard(coin, name){
     const coingecko = await getCoinFromCoingecko(coin.coingeckoID);
-
     const spacer1 = document.createElement('tr');
     spacer1.className = 'spacer';
     pricesTable.appendChild(spacer1);
@@ -65,7 +71,21 @@ async function createCoinCard(coin, name){
     buy.appendChild(buybutton);
 
     buybutton.addEventListener('click', async() => {
-        var resp = await deleteCoin(coin.shortname);
-        // location.reload();
+
+        var resp = await fetch('http://localhost:8080/coins/id/' + coin.coingeckoID);
+        var coinid = await resp.json();
+
+        delWallet(coinid);
+        delCoin(coin.shortname);
     })
+}
+
+async function delWallet(id){
+    return await deleteWallet(id);
+}
+
+async function delCoin(shortname){
+    var resp = await deleteCoin(shortname);
+    pricesTable.innerHTML = "";
+    loadCoinTable();
 }

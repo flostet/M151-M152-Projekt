@@ -63,6 +63,6 @@ async function createCoinCard(coin){
     buy.appendChild(buybutton);
 
     buybutton.addEventListener('click', () => {
-        location.href = 'detail.html?coin=' + coin.name;
+        location.href = 'detail.html?coin=' + coin.coingeckoID;
     })
 }

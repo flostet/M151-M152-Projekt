@@ -29,15 +29,15 @@ public class WalletService {
     }
 
     @Transactional
-    public Wallet add(final WalletDto walletDto){
-        Wallet wallet = new Wallet();
-        wallet.setCoin(coinRepo.findById(walletDto.getCoinId()).orElseThrow());
-        wallet.setUser(userRepo.findById(walletDto.getUserId()).orElseThrow());
+    public Wallet add(final Wallet wallet){
         return walletRepo.save(wallet);
     }
 
     @Transactional
     public void delete(final long id) { walletRepo.deleteById(id); }
+
+    @Transactional
+    public void deleteWithId(final long coinid) { walletRepo.deleteWithId(coinid); }
 
     @Transactional(readOnly = true)
     public Optional<Wallet> getbyId(final long id) { return walletRepo.findById(id);}

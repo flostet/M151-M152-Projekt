@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .regexMatchers("/coins/.*", "/wallets/.*", "/auth/login", "/auth/register", "/trades/.*", "/user/.*", "/coins/delete/.*")
+                .regexMatchers("/coins/.*", "/wallets/.*", "/auth/login", "/auth/register", "/trades/.*", "/user/.*", "/coins/delete/.*", "/wallets/delete/id/.*")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()

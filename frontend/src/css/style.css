@@ -14,6 +14,14 @@
         border: 2px solid black;
     }
 
+    .price-up{
+        color: green;
+    }
+
+    .price-down{
+        color: red;
+    }
+
     .prices-table{
         width: 100%;
     }
@@ -29,6 +37,7 @@
     .flex-row{
         display: flex;
         flex-direction: row;
+        justify-content: space-between ;
     }
 }
 
@@ -81,6 +90,15 @@
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     justify-content: space-between ;
+}
+
+.detail-price {
+    border: 2px solid gray;
+    padding: 5%;
+    margin: 10px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
 }
 
 .burger-menu{

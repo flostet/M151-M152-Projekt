@@ -11,9 +11,21 @@ export async function login(name, password){
         body: JSON.stringify(data)
     })
 
+    const resp = await fetch('http://localhost:8080/auth/info', {
+        method: 'GET',
+        credentials: 'include'})
+    const user = await resp.json();
+    console.log(user);
+
+
+
 
     if (response.status == 200){
-        location.href = "dashboard.html";
+        if(user.authorities[0].authority == 'ADMIN'){
+            location.href = 'admin.html';
+          } else if(user.authorities[0].authority == 'USER'){
+              location.href = 'dashboard.html';
+          }
     }
 }
 
@@ -74,4 +86,36 @@ export async function deleteCoin(name){
         method: 'DELETE',
     });
     return response.status;
+}
+
+export async function deleteWallet(id){
+    const response = await fetch('http://localhost:8080/wallets/delete/' + id, {
+        method: 'DELETE',
+    });
+    return response.status;
+}
+
+export async function getAllWallets(){
+    const wallets = await fetch('http://localhost:8080/wallets/', {
+        method: 'GET',
+        credentials: 'include',
+    })
+    return wallets.json();
+}
+
+export async function addCoin(name, shortcode, coingecko){
+    const data = {
+        'name': name,
+        'shortname': shortcode,
+        'coingeckoID': coingecko
+    }
+
+    const response = await fetch("http://localhost:8080/coins/add/", {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+
+    return response.json();
 }

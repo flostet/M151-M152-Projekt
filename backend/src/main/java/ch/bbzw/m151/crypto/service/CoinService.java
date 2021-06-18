@@ -40,4 +40,7 @@ public class CoinService {
                 .stream(coins.spliterator(), false)
                 .collect(Collectors.toList());
     }
+
+    @Transactional(readOnly = true)
+    public long getIDByName(final String coingeckoid) { return coinRepo.getIDByName(coingeckoid); }
 }

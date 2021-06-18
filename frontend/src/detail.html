@@ -39,43 +39,44 @@
 
         <div class="container dashboard-content">
             <div class="dashboard-balance">
-                <img src="assets/logo-test.png">
-                <h3>Bitcoin</h3>
-                <h5>BTC</h5>
+                <img id="coinimage">
+                <h3 id="coin-name"></h3>
+                <h5 id="coin-shortname"></h5>
             </div>
 
-            <div class="dashboard-currency">
-                <h2>CHF 45'098.04</h2>
-                <h5>- CHF 5'843.69 / -11.47% (24h)</h5>
-                <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-                <coingecko-coin-compare-chart-widget  coin-ids="bitcoin" currency="usd" locale="en"></coingecko-coin-compare-chart-widget>
+            <div class="detail-price">
+                <h2 id="price-now"></h2>
+                <h5 id="price-change-now"></h5>
+                <div class="price-chart">
+                    <canvas id="price-chart" width="400" height="300"></canvas>
+                </div>
 
                 <div class="flex-column">
                     <div class="flex-column">
                         <a>All-Time-High:</a>
-                        <h3>CHF 59'371.43</h3>
+                        <h3 id="alltimehigh"></h3>
                     </div>
                     <div class="flex-column">
                         <a>Market-Cap:</a>
-                        <h3>CHF 846.1 Mrd.</h3>
+                        <h3 id="market-cap"></h3>
                     </div>
                 </div>
             </div>
 
-            <div class="dashboard-currency">
+            <div class="detail-price">
                 <h3>Wallet</h3>
                 <div class="flex-row">
                     <div class="flex-column">
                         <a>Invested:</a>
-                        <h3>CHF 24'423.95</h3>
+                        <h3 id="investedmoney"></h3>
                     </div>
                     <div class="flex-column">
                         <a>Value Now:</a>
-                        <h3>CHF 24'423.95</h3>
+                        <h3 id="valuenow"></h3>
                     </div>
                     <div class="flex-column">
                         <a>Return on Investment:</a>
-                        <h3>CHF 24'423.95</h3>
+                        <h3 id="returnoninvestment"></h3>
                     </div>
                 </div>
             </div>
@@ -91,10 +92,11 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="/js/detail.js" type="module"></script>
+    <script src="./js/detail.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

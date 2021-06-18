@@ -1,4 +1,3 @@
-import { getURLParam } from "./script.js";
 import { getCoinFromCoingecko } from "./script.js";
 import { getAuth } from "./script.js";
 import { getWalletsfromUser } from "./script.js";
@@ -11,12 +10,14 @@ checkIfAdmin();
 
 loadWallets();
 
-
+8
 
 
 async function loadWallets() {
   const user  = await getAuth();
-  console.log(user);
+  if(user.authorities.authority == 'ADMIN'){
+    location.href = 'admin.html';
+  }
   var wallets  = await getWalletsfromUser(user.name);
   
   wallets.forEach((wallet) => {
