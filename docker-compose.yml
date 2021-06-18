@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-
+  
   frontend:
     container_name: crypto-frontend
     build: ./frontend/
@@ -9,6 +9,11 @@ services:
       - 443:443
     networks:
       - crypto
+    volumes:
+      - type: bind
+        source: ./frontend/src
+        target: /etc/nginx/html
+        consistency: consistent
 
   postgres:
     container_name: postgres
@@ -21,31 +26,28 @@ services:
       - 5432:5432
     networks:
       - crypto
-     volumes:
+    volumes:
       - postgres-db:/var/lib/postgresql/data
 
-   pgadmin:
-      container_name: pgadmin
-      image: dpage/pgadmin4:5.2
-     environment:
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:5.2
+    environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.ch
       - PGADMIN_DEFAULT_PASSWORD=secret
-     ports:
+    ports:
       - 5050:80
-     networks:
+    networks:
       - crypto
-     volumes:
+    volumes:
       - pgadmin-data:/root/.pgadmin
     depends_on:
       - postgres
-
 
 networks:
   crypto:
     driver: bridge
 
- volumes:
-   postgres-db:
-   pgadmin-data:
-   redis-data:
-        
+volumes:
+  postgres-db:
+  pgadmin-data:
