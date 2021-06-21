@@ -20,7 +20,7 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=fanicon
+      - POSTGRES_DB=cryptoplatform
     ports:
       - 5432:5432
     networks:
